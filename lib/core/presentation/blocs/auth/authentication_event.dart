@@ -4,8 +4,7 @@ part of 'authentication_bloc.dart';
 sealed class AuthenticationEvent {}
 
 class AuthSignInEvent extends AuthenticationEvent {
-  final String email;
-  final String password;
+  final String phoneNumber;
 
-  AuthSignInEvent(this.email, this.password);
+  AuthSignInEvent({required this.phoneNumber});
 }

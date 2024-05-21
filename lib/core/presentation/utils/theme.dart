@@ -12,6 +12,9 @@ ThemeData appTheme = getLightTheme();
 
 ThemeData getLightTheme() {
   return ThemeData(
+    colorScheme: const ColorScheme.light(
+      surface: Color.fromRGBO(255, 255, 255, 1),
+    ),
     applyElevationOverlayColor: false,
     dividerColor: const Color(0xFFECEDF1),
     brightness: Brightness.light,
@@ -23,39 +26,63 @@ ThemeData getLightTheme() {
             fontWeight: FontWeight.bold,
             color: appColors.textColor),
       ),
-      headlineLarge: GoogleFonts.urbanist(
+      headlineLarge: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 22.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      headlineMedium: GoogleFonts.urbanist(
+      headlineMedium: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 20.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      headlineSmall: GoogleFonts.urbanist(
+      headlineSmall: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 18.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      labelLarge: GoogleFonts.urbanist(
+      labelLarge: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 16.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      labelMedium: GoogleFonts.urbanist(
+      labelMedium: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 14.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.w500)),
-      labelSmall: GoogleFonts.urbanist(
+      labelSmall: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 12.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.w400)),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: _outlineInputBorder,
+      enabledBorder: _outlineInputBorder,
+      focusedBorder: _outlineInputBorder,
+      errorBorder: _outlineInputBorder,
+      focusedErrorBorder: _outlineInputBorder,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFF246BFD),
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        minimumSize: Size(50.sp, 50.sp),
+        maximumSize: Size(500.sp, 100.sp),
+        animationDuration: const Duration(milliseconds: 200),
+      ),
+    ),
   );
 }
+
+final _outlineInputBorder = OutlineInputBorder(
+  borderSide: const BorderSide(color: Color.fromARGB(87, 0, 0, 0)),
+  borderRadius: BorderRadius.circular(10),
+);
 
 ThemeData getDarkTheme() {
   return ThemeData(
@@ -64,38 +91,38 @@ ThemeData getDarkTheme() {
     brightness: Brightness.dark,
     primaryColor: const Color(0xFF246BFD),
     textTheme: TextTheme(
-      titleSmall: GoogleFonts.caveat(
+      titleSmall: GoogleFonts.radioCanada(
         textStyle: TextStyle(
             fontSize: 18.sp,
             fontWeight: FontWeight.bold,
             color: appColors.textColor),
       ),
-      headlineLarge: GoogleFonts.urbanist(
+      headlineLarge: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 22.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      headlineMedium: GoogleFonts.urbanist(
+      headlineMedium: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 20.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      headlineSmall: GoogleFonts.urbanist(
+      headlineSmall: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 18.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      labelLarge: GoogleFonts.urbanist(
+      labelLarge: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 16.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      labelMedium: GoogleFonts.urbanist(
+      labelMedium: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 14.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.w500)),
-      labelSmall: GoogleFonts.urbanist(
+      labelSmall: GoogleFonts.radioCanada(
           textStyle: TextStyle(
               fontSize: 12.sp,
               color: appColors.textColor,

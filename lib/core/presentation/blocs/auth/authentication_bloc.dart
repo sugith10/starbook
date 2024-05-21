@@ -32,9 +32,9 @@ class AuthenticationBloc
           AuthenticationUseCase getUserProfileUseCase =
               GetIt.instance<AuthenticationUseCase>();
 
-          AuthUserModel authUserModel = await getUserProfileUseCase
-              .authenticateUser(event.email, event.password);
-          await delayedEmit(emit, AuthSignedInState(authUserModel));
+          // AuthUserModel authUserModel = await getUserProfileUseCase
+          //     .authenticateUser(event.email, event.password);
+          // await delayedEmit(emit, AuthSignedInState(authUserModel));
         }
       } on MyAppException catch (ae) {
         appLogger.e(ae);

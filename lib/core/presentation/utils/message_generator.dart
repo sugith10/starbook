@@ -3,9 +3,10 @@ class MessageGenerator {
     "en": {
       "un-expected-error": "Some un expected error happened!",
       "un-expected-error-message": "Some un expected error happened!",
-      "auth-welcome": "Input your credentials here to log in to the system.",
+      "auth-welcome": "Let's sign you in.",
+      "auth-welcome-message": "Welcome Back, You've been misseed!",
       "auth-visit-site-guide":
-          "To explore in-depth instructions for utilizing this rapid starter Flutter project, head over to https://github.com/youmenotes/FlutterUtilHub to kick off your journey.",
+          "By proceeding, I accept TakeMyTym's T&C",
     }
   };
 

@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp.router(
           routerConfig: router,
-          title: "flutter_util_hub",
+          title: "Starbook",
           debugShowCheckedModeBanner: false,
           theme: appTheme,
           darkTheme: appTheme,
