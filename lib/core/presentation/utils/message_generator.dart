@@ -5,8 +5,9 @@ class MessageGenerator {
       "un-expected-error-message": "Some un expected error happened!",
       "auth-welcome": "Let's sign you in.",
       "auth-welcome-message": "Welcome Back, You've been misseed!",
-      "auth-visit-site-guide":
-          "By proceeding, I accept TakeMyTym's T&C",
+      "auth-visit-site-guide": "By proceeding, I accept TakeMyTym's T&C",
+      "verification-welcome": "Verification Code",
+      "verification-guide": "We've sent the verification code to"
     }
   };
 

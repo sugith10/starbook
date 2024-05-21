@@ -15,14 +15,14 @@ class TermsAndConditionsWidget extends StatelessWidget {
           NavigationText(
             leadingText: "By proceeding, I accept Starbook",
             buttonText: 'T&C',
-            callback: () {
+            buttonCall: () {
               // AppPolicyUtil().launchConditions();
             },
           ),
           NavigationText(
             leadingText: "and",
             buttonText: 'Privacy Policy.',
-            callback: () {
+            buttonCall: () {
               // AppPolicyUtil().launchPrivacyPolicy();
             },
           ),

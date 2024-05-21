@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_util_hub/core/presentation/navigation/route_names.dart';
 import 'package:flutter_util_hub/core/presentation/utils/constants.dart';
 import 'package:flutter_util_hub/core/presentation/utils/message_generator.dart';
 import 'package:flutter_util_hub/core/presentation/utils/theme.dart';
@@ -12,7 +13,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/auth/authentication_bloc.dart';
 import '../widgets/auth_text_field.dart';
+import '../widgets/submit_button.dart';
 import '../widgets/terms_and_conditions_widget.dart';
+import '../widgets/welcome_text.dart';
 
 class SigninScreen extends StatefulWidget {
   const SigninScreen({Key? key}) : super(key: key);
@@ -117,28 +120,22 @@ class _SigninScreenState extends State<SigninScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             const Spacer(flex: 1),
-                            Text(MessageGenerator.getMessage("auth-welcome"),
-                                textAlign: TextAlign.center,
-                                style:
-                                    Theme.of(context).textTheme.headlineLarge),
+                            WelcomeText(
+                              text: MessageGenerator.getMessage("auth-welcome"),
+                            ),
                             SizedBox(height: 5.h),
-                            Text(
-                              MessageGenerator.getMessage(
+                            WelcomeMsgText(
+                              text: MessageGenerator.getMessage(
                                   "auth-welcome-message"),
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.labelMedium,
                             ),
                             SizedBox(height: 30.h),
                             AuthTextField(controller: _phoneNumCntrlr),
                             SizedBox(height: 15.h),
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: const Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text("Send OTP"),
-                                ],
-                              ),
+                            SubmitButton(
+                              callback: () {
+                                context.go("/${RouteName.otpVerification}");
+                              },
+                              text: "Send OTP",
                             ),
                             SizedBox(height: 30.h),
                             const TermsAndConditionsWidget(),

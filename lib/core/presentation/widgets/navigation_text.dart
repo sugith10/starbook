@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 class NavigationText extends StatelessWidget {
   final String leadingText;
   final String buttonText;
-  final VoidCallback callback;
+  final VoidCallback buttonCall;
 
   const NavigationText({
     super.key,
     required this.leadingText,
     required this.buttonText,
-    required this.callback,
+    required this.buttonCall,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        callback();
+        buttonCall();
       },
       child: RichText(
         text: TextSpan(

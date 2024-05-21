@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "260070046054",
+    "project_id": "star-book-7db0e",
+    "storage_bucket": "star-book-7db0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260070046054:android:7182fc5f43b3d1395230a7",
+        "android_client_info": {
+          "package_name": "com.dayproduction.starbook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoFHwzJn9pZb-7MXAJUwnlKpsE0N6jZz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
