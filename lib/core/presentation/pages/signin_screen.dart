@@ -104,49 +104,50 @@ class _SigninScreenState extends State<SigninScreen> {
           bloc: _authBloc,
           builder: (ctx, state) {
             return Scaffold(
-              body: CustomScrollView(slivers: [
-                SliverFillRemaining(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: SizedBox(
-                      width: maxScreenWidth,
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                            minWidth: MediaQuery.of(context).size.width,
-                            minHeight: MediaQuery.of(context).size.height),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Spacer(flex: 1),
-                            WelcomeText(
-                              text: MessageGenerator.getMessage("auth-welcome"),
-                            ),
-                            SizedBox(height: 5.h),
-                            WelcomeMsgText(
-                              text: MessageGenerator.getMessage(
-                                  "auth-welcome-message"),
-                            ),
-                            SizedBox(height: 30.h),
-                            AuthTextField(controller: _phoneNumCntrlr),
-                            SizedBox(height: 15.h),
-                            SubmitButton(
-                              callback: () {
-                                context.go("/${RouteName.otpVerification}");
-                              },
-                              text: "Send OTP",
-                            ),
-                            SizedBox(height: 30.h),
-                            const TermsAndConditionsWidget(),
-                            SizedBox(height: 30.h),
-                          ],
+              body: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.15),
+                        Center(
+                          child: SizedBox(
+                            height: 250,
+                            width: 250,
+                            child: Image.asset("assets/images/STARBOOK-01.png"),
+                          ),
                         ),
-                      ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.15),
+                        WelcomeText(
+                          text: MessageGenerator.getMessage("auth-welcome"),
+                        ),
+                        SizedBox(height: 5.h),
+                        WelcomeMsgText(
+                          text: MessageGenerator.getMessage(
+                              "auth-welcome-message"),
+                        ),
+                        SizedBox(height: 30.h),
+                        AuthTextField(controller: _phoneNumCntrlr),
+                        SizedBox(height: 15.h),
+                        SubmitButton(
+                          callback: () {
+                            context.go("/${RouteName.otpVerification}");
+                          },
+                          text: "Send OTP",
+                        ),
+                        SizedBox(height: 30.h),
+                        const TermsAndConditionsWidget(),
+                      ],
                     ),
                   ),
-                )
-              ]),
+                ),
+              ),
             );
           }),
     );
