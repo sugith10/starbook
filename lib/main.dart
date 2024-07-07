@@ -1,17 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_util_hub/core/presentation/navigation/app_router.dart';
-import 'package:flutter_util_hub/core/presentation/pages/signin_screen.dart';
-import 'package:flutter_util_hub/core/presentation/utils/di.dart';
-import 'package:flutter_util_hub/core/presentation/utils/theme.dart';
+import 'package:star_book/view/theme/theme.dart';
 import 'package:url_strategy/url_strategy.dart';
+import 'package:get/get.dart';
+
+import 'core/di/app_binding.dart';
+import 'view/route/app_route.dart';
+import 'view/route/route_name.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   setPathUrlStrategy();
-  setupDependencies();
 
   runApp(const MyApp());
 }
@@ -19,7 +20,6 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -28,15 +28,16 @@ class MyApp extends StatelessWidget {
       minTextAdapt: false,
       fontSizeResolver: FontSizeResolvers.radius,
       builder: (context, child) {
-        return MaterialApp.router(
-          routerConfig: router,
+        return GetMaterialApp(
           title: "Starbook",
           debugShowCheckedModeBanner: false,
           theme: appTheme,
           darkTheme: appTheme,
+          initialRoute: RouteName.initial,
+          getPages: AppRoute.routes,
+          initialBinding: AppBinding(),
         );
       },
-      child: const SigninScreen(),
     );
   }
 
