@@ -19,7 +19,6 @@ dependencies:
   loading_indicator: ^3.1.1
   awesome_dialog: ^3.1.0
   progress_dialog_null_safe: ^1.0.7
-  email_validator: ^2.1.17
   flutter_linkify: ^6.0.0
   url_launcher: ^6.1.12
   url_strategy: ^0.2.0
@@ -33,6 +32,7 @@ dependencies:
   iconly: ^1.0.1
   get: ^4.6.6
   form_validator: ^2.1.1
+  animated_notch_bottom_bar: ^1.0.3
 
 dev_dependencies:
   flutter_test:

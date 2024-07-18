@@ -5,12 +5,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: CustomScrollView(
-        physics: BouncingScrollPhysics(),
-        slivers: [
-            
-        ],
+    return Scaffold(
+      appBar: AppBar(),
+      body: const SingleChildScrollView(
+        child: Column(children: []),
       ),
     );
   }

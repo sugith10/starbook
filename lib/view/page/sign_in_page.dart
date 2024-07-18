@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:get/get.dart';
+import 'package:star_book/core/util/app_exception.dart';
 import 'package:star_book/view/widget/submit_button.dart';
 
 import '../../view_model/auth_controller.dart';
@@ -45,8 +46,7 @@ class _SignInPageState extends State<SignInPage> {
     if (_formKey.currentState!.validate()) {
       authController.login(_emailController.text, _passwordController.text);
     } else {
-      print("error");
-      authController.error("Please enter all fields.");
+      authController.error(const AppException(details: "Fill all fields"));
     }
   }
 
@@ -64,8 +64,8 @@ class _SignInPageState extends State<SignInPage> {
     });
 
     ever(authController.errorMessage, (errorMessage) {
-      if (errorMessage.isNotEmpty) {
-        Get.snackbar('Error', errorMessage);
+      if (errorMessage != null) {
+        Get.snackbar(errorMessage.title, errorMessage.description);
       }
     });
     return Scaffold(

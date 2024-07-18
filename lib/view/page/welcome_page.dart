@@ -66,7 +66,9 @@ class _WelcomePageState extends State<WelcomePage> {
               children: [
                 Expanded(
                   child: SubmitButton(
-                    callback: () {},
+                    callback: () {
+                        Get.toNamed(RouteName.signUp);
+                    },
                     text: "Sign Up",
                   ),
                 ),

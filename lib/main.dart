@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,12 +7,15 @@ import 'package:url_strategy/url_strategy.dart';
 import 'package:get/get.dart';
 
 import 'core/di/app_binding.dart';
+import 'firebase_options.dart';
 import 'view/route/app_route.dart';
 import 'view/route/route_name.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   setPathUrlStrategy();
 
   runApp(const MyApp());

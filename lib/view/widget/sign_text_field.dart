@@ -56,6 +56,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
         keyboardType: widget.keyboardType,
         focusNode: widget.focusNode,
         textInputAction: TextInputAction.next,
+        style: const TextStyle(color: Colors.white),
         decoration: InputDecoration(
           suffixIcon: widget.showSuffixIcon
               ? IconButton(
@@ -80,7 +81,6 @@ class _AuthTextFieldState extends State<AuthTextField> {
           errorText: widget.errorMsg,
           errorStyle: Theme.of(context).textTheme.labelSmall,
         ),
-       
       ),
     );
   }
