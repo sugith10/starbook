@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_validator/form_validator.dart';
@@ -103,7 +104,11 @@ class _SignInPageState extends State<SignInPage> {
                 delay: const Duration(milliseconds: 800),
                 duration: const Duration(milliseconds: 900),
                 child: SubmitButton(
-                  text: 'LOG IN',
+                 child: Obx(
+                    () => authController.isLoading.value
+                        ? const CupertinoActivityIndicator(radius: 10)
+                        : const Text('LOG IN'),
+                  ),
                   callback: () {
                     _submitCredentials();
                   },

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
-import 'package:progress_dialog_null_safe/progress_dialog_null_safe.dart';
 
 import '../route/route_name.dart';
 import '../util/assets/asset_png.dart';
@@ -10,28 +9,8 @@ import '../widget/submit_button.dart';
 import '../widget/terms_and_conditions_widget.dart';
 import '../widget/welcome_page_text.dart';
 
-class WelcomePage extends StatefulWidget {
+class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
-
-  @override
-  State<WelcomePage> createState() => _WelcomePageState();
-}
-
-class _WelcomePageState extends State<WelcomePage> {
-  final TextEditingController _phoneNumCntrlr = TextEditingController();
-
-  ProgressDialog? pr;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _phoneNumCntrlr.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +46,9 @@ class _WelcomePageState extends State<WelcomePage> {
                 Expanded(
                   child: SubmitButton(
                     callback: () {
-                        Get.toNamed(RouteName.signUp);
+                      Get.toNamed(RouteName.signUp);
                     },
-                    text: "Sign Up",
+                    child: const Text("Sign Up"),
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -78,7 +57,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     callback: () {
                       Get.toNamed(RouteName.signIn);
                     },
-                    text: "Login",
+                    child: const Text("Login"),
                   ),
                 ),
               ],

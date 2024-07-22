@@ -51,10 +51,10 @@ class OtpVerificationPage extends StatelessWidget {
                       hintText: "Enter OTP"),
                 ),
                 SizedBox(height: 15.h),
-                SubmitButton(
-                  callback: () {},
-                  text: "Verify OTP",
-                ),
+                // SubmitButton(
+                //   callback: () {},
+                //   text: "Verify OTP",
+                // ),
                 SizedBox(height: 30.h),
                 NavigationText(
                   leadingText: "Didn't receive the code?",

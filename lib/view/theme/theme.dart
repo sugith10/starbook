@@ -19,9 +19,9 @@ ThemeData getLightTheme() {
     brightness: Brightness.light,
     appBarTheme: AppBarTheme(
       backgroundColor: appColor.screenBG,
-     iconTheme: IconThemeData(
-      color: appColor.textColor,
-     ),
+      iconTheme: IconThemeData(
+        color: appColor.textColor,
+      ),
       elevation: 0,
     ),
     textTheme: TextTheme(

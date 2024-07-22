@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_validator/form_validator.dart';
@@ -10,7 +11,6 @@ import '../const/app_padding.dart';
 import '../route/route_name.dart';
 import '../widget/animated_navigation_button.dart';
 import '../widget/auth_app_bar.dart';
-import '../widget/sign_in_form.dart';
 import '../widget/sign_up_form.dart';
 import '../widget/submit_button.dart';
 import '../widget/terms_and_conditions_widget.dart';
@@ -29,6 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _userNameController = TextEditingController();
+  final _passwordConfirmController = TextEditingController();
   final AuthController authController = Get.find<AuthController>();
 
   @override
@@ -42,6 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
     _emailController.dispose();
     _passwordController.dispose();
     _userNameController.dispose();
+    _passwordConfirmController.dispose();
     super.dispose();
   }
 
@@ -88,6 +90,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 errorMsg: _errorMsg,
                 emailController: _emailController,
                 passwordController: _passwordController,
+                passwordConfirmController: _passwordConfirmController,
                 emailValidator: _emailVal,
                 passwordValidator: _passwordVal,
                 userNameController: _userNameController,
@@ -107,7 +110,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 delay: const Duration(milliseconds: 800),
                 duration: const Duration(milliseconds: 900),
                 child: SubmitButton(
-                  text: 'LOG IN',
+                  child: Obx(
+                    () => authController.isLoading.value
+                        ? const CupertinoActivityIndicator(radius: 10)
+                        : const Text('LOG IN'),
+                  ),
                   callback: () {
                     _submitCredentials();
                   },

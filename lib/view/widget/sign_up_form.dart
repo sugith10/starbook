@@ -6,6 +6,7 @@ import 'sign_text_field.dart';
 class SignUpForm extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
+  final TextEditingController passwordConfirmController;
   final TextEditingController userNameController;
   final String? errorMsg;
   final GlobalKey<FormState> formKey;
@@ -15,6 +16,7 @@ class SignUpForm extends StatelessWidget {
     super.key,
     required this.emailValidator,
     required this.passwordValidator,
+    required this.passwordConfirmController,
     required this.emailController,
     required this.passwordController,
     required this.userNameController,
@@ -31,7 +33,7 @@ class SignUpForm extends StatelessWidget {
           AuthTextField(
             fadeInDelay: 750,
             fadeInDuration: 850,
-            controller: emailController,
+            controller: userNameController,
             hintText: "Name",
             obsecureText: false,
             showSuffixIcon: false,
@@ -70,7 +72,7 @@ class SignUpForm extends StatelessWidget {
           AuthTextField(
             fadeInDelay: 650,
             fadeInDuration: 750,
-            controller: passwordController,
+            controller: passwordConfirmController,
             hintText: "Confirm Password",
             obsecureText: true,
             errorMsg: errorMsg,

@@ -8,6 +8,36 @@ class AuthRepo {
   final RemoteDataSource _remoteDataSource;
   AuthRepo(this._remoteDataSource);
 
+  Future<UserModel> register(
+    String email,
+    String password,
+    String name,
+  ) async {
+    try {
+      final UserModel user =
+          await _remoteDataSource.emailSignUp(email, password, name);
+      return user;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'network-request-failed') {
+        throw const AppException(
+            alert: 'Network Error',
+            details: "Please check your internet connection and try again.");
+      } else if (e.code == 'too-many-requests') {
+        throw const AppException(
+          alert: 'Too Many Requests',
+          details:
+              'We\'re experiencing a high volume of requests. Please try again later...',
+        );
+      } else {
+        // If any other Firebase Auth Exception exception, throw an AppException
+        throw const AppException();
+      }
+    } catch (e) {
+      // If any other exception, throw an AppException
+      throw const AppException();
+    }
+  }
+
   Future<UserModel> login(String email, String password) async {
     try {
       return await _remoteDataSource.emailSignIn(email, password);

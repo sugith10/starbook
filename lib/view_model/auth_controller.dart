@@ -11,13 +11,31 @@ class AuthController extends GetxController {
 
   var userModel = Rxn<UserModel>();
   var errorMessage = Rxn<AppNotification>();
+  var isLoading = false.obs;
 
   Future<void> login(String email, String password) async {
+    _callLoading(true);
+    await Future.delayed(Duration(seconds: 2), () {});
     try {
       final UserModel user = await _authRepo.login(email, password);
       userModel.value = user;
-    } on AppException catch(e){
+    } on AppException catch (e) {
       error(e);
+    } finally {
+      _callLoading(false);
+    }
+  }
+
+  Future<void> register(String email, String password, String name) async {
+    _callLoading(true);
+   await Future.delayed(Duration(seconds: 2), () {});
+    try {
+      final UserModel user = await _authRepo.register(email, password, name);
+      userModel.value = user;
+    } on AppException catch (e) {
+      error(e);
+    } finally {
+      _callLoading(false);
     }
   }
 
@@ -28,5 +46,8 @@ class AuthController extends GetxController {
     );
   }
 
-  //Authentication failed. Please try again.
+  void _callLoading(bool value) {
+    isLoading.value = value;
+    print(isLoading.value);
+  }
 }

@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 
 class SubmitButton extends StatelessWidget {
-  final String text;
+  final Widget child;
   final VoidCallback callback;
   const SubmitButton({
-    required this.text,
+    required this.child,
     required this.callback,
     super.key,
   });
@@ -19,7 +19,7 @@ class SubmitButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(text),
+         child ,
         ],
       ),
     );
