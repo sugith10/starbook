@@ -2,14 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:star_book/view/theme/theme.dart';
+import 'package:star_book/view/theme/app_theme.dart';
+
 import 'package:url_strategy/url_strategy.dart';
 import 'package:get/get.dart';
 
 import 'core/di/app_binding.dart';
 import 'firebase_options.dart';
-import 'view/route/app_route.dart';
-import 'view/route/route_name.dart';
+import 'core/route/app_route.dart';
+import 'core/route/route_name.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,11 +34,10 @@ class MyApp extends StatelessWidget {
       fontSizeResolver: FontSizeResolvers.radius,
       builder: (context, child) {
         return GetMaterialApp(
+          theme: AppTheme().themeData,
           title: "Starbook",
           debugShowCheckedModeBanner: false,
-          theme: appTheme,
-          darkTheme: appTheme,
-          initialRoute: RouteName.initial,
+          initialRoute: RouteName.home,
           getPages: AppRoute.routes,
           initialBinding: AppBinding(),
         );

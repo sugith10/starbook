@@ -1,5 +1,5 @@
 final class AssetPng {
   AssetPng._();
 
-  static const welcomeLogo = "assets/images/STARBOOK-01.png";
+  static const String welcome = "assets/images/STARBOOK-01.png";
 }

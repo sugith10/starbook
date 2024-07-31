@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class SubmitButton extends StatelessWidget {
@@ -16,10 +15,13 @@ class SubmitButton extends StatelessWidget {
       onPressed: () {
         callback();
       },
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size(double.infinity, 50),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-         child ,
+          child,
         ],
       ),
     );

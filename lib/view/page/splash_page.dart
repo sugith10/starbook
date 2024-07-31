@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:star_book/view/route/route_name.dart';
+import 'package:star_book/core/route/route_name.dart';
 
 import '../util/assets/asset_png.dart';
 
@@ -19,8 +19,9 @@ class SplashPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(50.0),
             child: Hero(
-              tag: "welcomeLogo",
-              child: Image.asset(AssetPng.welcomeLogo)),
+              tag: "welcome",
+              child: Image.asset(AssetPng.welcome)
+            ),
           ),
           const Spacer(flex: 1)
         ],

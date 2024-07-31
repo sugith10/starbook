@@ -1,5 +1,7 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
+import 'package:star_book/view/color/app_color.dart';
 
 import 'home_page.dart';
 
@@ -12,8 +14,6 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final List bottomBarPages = [
-    const HomePage(),
-    const HomePage(),
     const HomePage(),
     const HomePage(),
     const HomePage(),
@@ -47,9 +47,13 @@ class _MainPageState extends State<MainPage> {
         textOverflow: TextOverflow.visible,
         shadowElevation: 5,
         kBottomRadius: 28.0,
+
         maxLine: 1,
-        color: Colors.white,
-        notchColor: Colors.black87,
+        color: Color.fromARGB(255, 255, 255, 255),
+        blurOpacity: .2,
+        elevation: 5,
+
+        notchColor: AppColor.primary,
 
         /// restart app if you change removeMargins
         removeMargins: false,
@@ -62,44 +66,33 @@ class _MainPageState extends State<MainPage> {
         bottomBarItems: const [
           BottomBarItem(
             inActiveItem: Icon(
-              Icons.home_filled,
-              color: Colors.blueGrey,
+              IconlyLight.home,
+              color: AppColor.inActive,
             ),
             activeItem: Icon(
-              Icons.home_filled,
-              color: Colors.blueAccent,
+              IconlyLight.home,
+              color: AppColor.bg,
             ),
             itemLabel: 'Page 1',
           ),
           BottomBarItem(
-            inActiveItem: Icon(Icons.star, color: Colors.blueGrey),
+            inActiveItem: Icon(IconlyLight.calendar, color: AppColor.inActive),
             activeItem: Icon(
-              Icons.star,
-              color: Colors.blueAccent,
+              IconlyLight.calendar,
+              color: AppColor.bg,
             ),
             itemLabel: 'Page 2',
           ),
           BottomBarItem(
             inActiveItem: Icon(
-              Icons.settings,
-              color: Colors.blueGrey,
+              color: AppColor.inActive,
+              IconlyLight.profile,
             ),
             activeItem: Icon(
-              Icons.settings,
-              color: Colors.pink,
+              IconlyLight.profile,
+              color: AppColor.bg,
             ),
             itemLabel: 'Page 3',
-          ),
-          BottomBarItem(
-            inActiveItem: Icon(
-              Icons.person,
-              color: Colors.blueGrey,
-            ),
-            activeItem: Icon(
-              Icons.person,
-              color: Colors.yellow,
-            ),
-            itemLabel: 'Page 4',
           ),
         ],
         onTap: (index) {

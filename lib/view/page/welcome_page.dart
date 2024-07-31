@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
 
-import '../route/route_name.dart';
+
+import '../../core/route/route_name.dart';
+
 import '../util/assets/asset_png.dart';
-import '../util/message_generator.dart';
+
 import '../widget/submit_button.dart';
 import '../widget/terms_and_conditions_widget.dart';
-import '../widget/welcome_page_text.dart';
+
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -20,27 +21,10 @@ class WelcomePage extends StatelessWidget {
         child: Column(
           children: [
             const Spacer(flex: 4),
-            Center(
-              child: SizedBox(
-                height: 250,
-                width: 250,
-                child: Hero(
-                  tag: "welcomeLogo",
-                  child: Image.asset(AssetPng.welcomeLogo),
-                ),
-              ),
-            ),
+            Hero(
+              tag: "welcome",
+              child: Image.asset(AssetPng.welcome)),
             const Spacer(flex: 4),
-            WelcomeText(
-              text: MessageGenerator.getMessage("auth-welcome"),
-            ),
-            SizedBox(height: 5.h),
-            WelcomeMsgText(
-              text: MessageGenerator.getMessage(
-                "auth-welcome-message",
-              ),
-            ),
-            const Spacer(flex: 2),
             Row(
               children: [
                 Expanded(

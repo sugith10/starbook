@@ -9,7 +9,7 @@ import 'package:star_book/view/widget/submit_button.dart';
 
 import '../../view_model/auth_controller.dart';
 import '../const/app_padding.dart';
-import '../route/route_name.dart';
+import '../../core/route/route_name.dart';
 import '../widget/animated_navigation_button.dart';
 import '../widget/auth_app_bar.dart';
 import '../widget/sign_in_form.dart';

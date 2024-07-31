@@ -4,7 +4,6 @@ import 'package:star_book/view/widget/welcome_page_text.dart';
 
 import '../util/message_generator.dart';
 import '../widget/navigation_text.dart';
-import '../widget/submit_button.dart';
 
 class OtpVerificationPage extends StatelessWidget {
   const OtpVerificationPage({super.key});

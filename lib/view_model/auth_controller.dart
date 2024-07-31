@@ -15,7 +15,7 @@ class AuthController extends GetxController {
 
   Future<void> login(String email, String password) async {
     _callLoading(true);
-    await Future.delayed(Duration(seconds: 2), () {});
+    await Future.delayed(const Duration(seconds: 2), () {});
     try {
       final UserModel user = await _authRepo.login(email, password);
       userModel.value = user;
@@ -28,7 +28,7 @@ class AuthController extends GetxController {
 
   Future<void> register(String email, String password, String name) async {
     _callLoading(true);
-   await Future.delayed(Duration(seconds: 2), () {});
+   await Future.delayed(const Duration(seconds: 2), () {});
     try {
       final UserModel user = await _authRepo.register(email, password, name);
       userModel.value = user;
